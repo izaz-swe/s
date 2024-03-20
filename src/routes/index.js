@@ -1,7 +1,11 @@
+import { lazy } from "react";
+
+const dummy = lazy(()=> import("../components/Sale"))
+
 const routes = [
   {
-    path: "/welcome",
-    component: "hello"
+    path: "/app/sale",
+    component: dummy
   }
 ];
 
