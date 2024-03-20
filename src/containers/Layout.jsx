@@ -47,7 +47,6 @@ function Layout(props) {
         container={container}
       />
       <PageContent drawerWidth={drawerWidth}/>
-      
     </Box>
   );
 }
