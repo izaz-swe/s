@@ -1,18 +1,29 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import './App.css'
-import Dummy from './components/Dummy'
-import Layout from './containers/Layout'
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import "./App.css";
+import Layout from "./containers/Layout";
+import PrivateRoutes from "./routes/PrivateRoutes";
+import { useSelector } from "react-redux";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
- 
+  const { token } = useSelector((state) => state.user.user);
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='*' element={<Layout/>}/>
-        <Route path='/app' element={<Dummy/>}/>
+        {token ? (
+          <Route path="/app/*" element={<Layout />} />
+        ) : (
+          <>
+            <Route path="/login" element={<LoginPage />} />
+          </>
+        )}
+        <Route
+          path="*"
+          element={<Navigate to={token ? "/app/dashboard" : "/login"} replace />}
+        />
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;

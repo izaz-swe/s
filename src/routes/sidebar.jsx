@@ -1,7 +1,7 @@
 import { Dashboard, Home } from "@mui/icons-material";
 const routes = [
   {
-    path: "",
+    path: "/app/dashboard",
     icon: <Dashboard />,
     name: "Dashboard"
   },
