@@ -15,30 +15,36 @@ import {
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import { createUserLogin, errorClean } from "../state/reducers/loginSlice";
-
+import 'react-toastify/dist/ReactToastify.css';
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isChecked, setIsChecked] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const { isLoading, isAuthenticated, isError } = useSelector((state) => state.user); 
+  const { isLoading, isAuthenticated, isError, error } = useSelector(
+    (state) => state.user
+  );
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(email === "" || password === ""){
+    if (email === "" || password === "") {
       setErrorMessage("Email or Password are required");
-    }else{
-      dispatch(createUserLogin({email, password}));
+    } else {
+      dispatch(createUserLogin({ email, password }));
       setEmail("");
       setPassword("");
     }
   };
-  useEffect(()=> {
-    if(isError){
-      toast.error(errorMessage)
+  useEffect(() => {
+    if (isError || errorMessage) {
+      setErrorMessage(error);
+      toast.info(errorMessage, {
+        position: "top-center",
+      });
       dispatch(errorClean());
     }
     if (errorMessage) {
@@ -49,8 +55,7 @@ const LoginPage = () => {
         clearTimeout(timer);
       };
     }
-  },
-[isError, errorMessage, isAuthenticated, navigate, dispatch]);
+  }, [isError, errorMessage, isAuthenticated, navigate, dispatch]);
   return (
     <Box
       sx={{
@@ -61,6 +66,17 @@ const LoginPage = () => {
         minHeight: "100vh",
       }}
     >
+      <ToastContainer
+        position="top-center"
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <Card
         variant="outlined"
         sx={{ boxShadow: "0px 2px 6px rgba(0, 0, 0, 0.2)" }}
