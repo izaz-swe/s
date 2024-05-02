@@ -19,7 +19,7 @@ function App() {
         )}
         <Route
           path="*"
-          element={<Navigate to={token ? "/app/dashboard" : "/login"} replace />}
+          element={<Navigate to={token ? "/app/farmer/dashboard" : "/login"} replace />}
         />
       </Routes>
     </BrowserRouter>

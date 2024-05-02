@@ -1,0 +1,97 @@
+.table-wrapper {
+  .table-container {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 16px;
+    border-radius: 12px;
+  }
+  .css-11xur9t-MuiPaper-root-MuiTableContainer-root {
+    padding: 24px;
+    border-radius: 14px !important;
+    border: 1px solid #e6e6ee;
+  }
+
+  table {
+    thead {
+      .MuiTableCell-head {
+        color: #000650;
+        font-size: 14px;
+        line-height: 18px;
+        letter-spacing: 0px;
+        text-align: left;
+        border-bottom: none;
+      }
+    }
+    tbody {
+      .MuiTableCell-body {
+        font-size: 14px;
+        line-height: 21px;
+        text-align: left;
+        border-bottom: none;
+      }
+    }
+  }
+
+  .table {
+    tbody {
+      tr {
+        border-bottom: none;
+      }
+    }
+  }
+  .custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+
+  .table-cell-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    button {
+      padding: 0px 12px;
+      margin-right: 8px;
+      transform: rotate(-0deg);
+      border: 1px solid #f33f3f;
+      color: #f33f3f;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+
+      &.approve {
+        background-color: #00804a;
+        color: white;
+        border: none;
+      }
+    }
+  }
+  .approve {
+    background-color: #00804a;
+    color: white;
+    padding: 8px;
+    margin-right: 8px;
+    transform: rotate(-0deg);
+    border-radius: 8px;
+  }
+  .reject {
+    padding: 8px;
+    margin-right: 8px;
+    transform: rotate(-0deg);
+    border: 1px solid #f33f3f;
+    color: #f33f3f;
+    border-radius: 8px;
+  }
+  .MuiTablePagination-toolbar {
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    flex-wrap: wrap;
+    margin-top: 24px;
+  }
+  .table-pagination .MuiTablePagination-select {
+    padding-top: 8px;
+  }
+}
