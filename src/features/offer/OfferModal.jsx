@@ -14,8 +14,8 @@ import {
 import React, { useEffect, useState } from "react";
 import OfferModalSkeleton from "./OfferModalSkeleton";
 import { useDispatch, useSelector } from "react-redux";
-import { getCategories, makeOffer } from "../../../state/reducers/offer/offerSlice";
-import { privatePostFile } from "../../../utils/apiCaller";
+import { getCategories, makeOffer } from "../../state/reducers/offer/offerSlice";
+import { privatePostFile } from "../../utils/apiCaller";
 import { CloudUpload } from "@mui/icons-material";
 
 const OfferModal = ({ handleClose }) => {
@@ -65,7 +65,7 @@ const OfferModal = ({ handleClose }) => {
     response.append("price", formData.price);
     response.append("image", image);
     response.append("cashOnDelivery", checked);
-    response.append("categoryId", category.categoryId);
+    response.append("categoryId", category._id);
     response.append("totalPrice", formData.price * formData.weight);
     dispatch(makeOffer({ token, offer: response }));
 
