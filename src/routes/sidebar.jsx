@@ -6,6 +6,11 @@ const routes = [
     name: "Dashboard"
   },
   {
+    path: "/app/home",
+    icon: <Home/>,
+    name: "Home"
+  },
+  {
     path: "",
     icon: <PostAdd />,
     name: "Offer",
@@ -25,12 +30,12 @@ const routes = [
   {
     path: "",
     icon: <Home />,
-    name: "Sale",
+    name: "Order",
     submenu: [
       {
         path: "/app/sale",
         icon: <Dashboard />,
-        name: "Sale Product"
+        name: "Pending"
       }
     ] 
   }

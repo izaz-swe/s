@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import TitleCard from '../../../components/cards/TitleCard';
 import { Box, Grid, Modal, Typography } from '@mui/material';
 import OfferModal from './OfferModal';
 import OfferCart from './OfferCart';
-import CustomDataTable from '../../../components/CustomDataTable/CustomDataTable';
+import TitleCard from '../../components/cards/TitleCard';
+import CustomDataTable from '../../components/CustomDataTable/CustomDataTable';
 
 const TopSideButtons = ({ handleOpen }) => {
   return (
