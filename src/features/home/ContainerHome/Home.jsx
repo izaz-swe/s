@@ -1,11 +1,18 @@
 import Banner from "./Banner/Banner";
+import { Brands } from "./Brand/Brands";
+import GrowUp from "./GrowUp/GrowUp";
+import OfferSlider from "./Offer/OfferSlider";
 
 
 const Home = () => {
     return (
         <div>
-            i am home
+           
+            <GrowUp/>
             <Banner/>
+            <OfferSlider/>
+            <Brands/>
+
         </div>
     );
 };
