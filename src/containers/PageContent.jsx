@@ -1,9 +1,8 @@
 import { Box, Toolbar } from "@mui/material";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import routes from "../routes";
-import Dummy from "../components/Dummy";
-
+import ErrorPage from "../pages/ErrorPage";
+import routes from "../routes/farmerRoute"
 function PageContent({drawerWidth}) {
   return (
     <Box
@@ -27,7 +26,7 @@ function PageContent({drawerWidth}) {
               )
             })
           }
-          <Route path="*" element={<Dummy/>} />
+          <Route path="*" element={<ErrorPage/>} />
         </Routes>
       </Box>
   );

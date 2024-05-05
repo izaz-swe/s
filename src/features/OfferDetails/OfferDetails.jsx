@@ -1,10 +1,17 @@
 import { Box, Button, CardMedia, Grid, Typography } from "@mui/material";
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Loader from "../../components/loader/Loader";
 import RelatedProducts from "./RelatedProducts";
+import { getOfferDetails } from "../../state/reducers/offer/offerSlice";
+import { useParams } from "react-router-dom";
 
 const OfferDetails = () => {
+  const dispatch = useDispatch();
+  const {offerId} = useParams();
+  useEffect(()=> {
+    dispatch(getOfferDetails(offerId));
+  }, []);
   const { offerDetails } = useSelector((state) => state.offer);
   return (
     <div>
@@ -14,29 +21,29 @@ const OfferDetails = () => {
             <Grid item xs={12} md={6}>
               <CardMedia
                 component="img"
-                image={offerDetails.image}
+                image={offerDetails?.image}
                 sx={{ width: "100%" }}
               />
             </Grid>
             <Grid item xs={12} md={6}>
               <Typography variant="h5" gutterBottom>
-                {offerDetails.offerName}
+                {offerDetails?.offerName}
               </Typography>
               <Typography variant="body1" gutterBottom>
-                Cash On Delivery: {offerDetails.cashOnDelivery ? "Yes" : "No"}
+                Cash On Delivery: {offerDetails?.cashOnDelivery ? "Yes" : "No"}
               </Typography>
               <Typography variant="body1" gutterBottom>
-                Sold By: {offerDetails.farmerDetails.name}
+                Sold By: {offerDetails?.farmerDetails?.name}
               </Typography>
               <Typography variant="body1" gutterBottom>
-                Mobile: {offerDetails.farmerDetails.phone}
+                Mobile: {offerDetails?.farmerDetails?.phone}
               </Typography>
               <Box sx={{ display: "flex" }}>
                 <Typography variant="body1" sx={{ pr: "10px" }}>
                   Price:{" "}
                 </Typography>
                 <Typography>
-                  {offerDetails.price} / {offerDetails.unit}
+                  {offerDetails?.price} / {offerDetails?.unit}
                 </Typography>
               </Box>
               <Box sx={{ display: "flex" }}>
@@ -44,7 +51,7 @@ const OfferDetails = () => {
                   Weight:{" "}
                 </Typography>
                 <Typography>
-                  {offerDetails.weight} {offerDetails.unit}
+                  {offerDetails?.weight} {offerDetails?.unit}
                 </Typography>
               </Box>
               <Box

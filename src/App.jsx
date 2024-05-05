@@ -4,14 +4,21 @@ import Layout from "./containers/Layout";
 import PrivateRoutes from "./routes/PrivateRoutes";
 import { useSelector } from "react-redux";
 import LoginPage from "./pages/LoginPage";
+import Home from "./pages/protected/Home";
 
 function App() {
-  const { token } = useSelector((state) => state.user.user);
+  const { token, role } = useSelector((state) => state.user.user);
+  let isFarmer = false;
+  if( role === "farmer" ) isFarmer= true;
   return (
     <BrowserRouter>
       <Routes>
         {token ? (
-          <Route path="/app/*" element={<Layout />} />
+          isFarmer ? (
+            <Route path="/app/farmer/*" element={<Layout />} />
+          ) : (
+            <Route path="/app/buyer/*" element={<Home />} />
+          )
         ) : (
           <>
             <Route path="/login" element={<LoginPage />} />
@@ -19,7 +26,9 @@ function App() {
         )}
         <Route
           path="*"
-          element={<Navigate to={token ? "/app/farmer/dashboard" : "/login"} replace />}
+          element={
+            <Navigate to={token  ? isFarmer ? "/app/farmer/dashboard" : "/app/buyer/": "/login"} replace />
+          }
         />
       </Routes>
     </BrowserRouter>
