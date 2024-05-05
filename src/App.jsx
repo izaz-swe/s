@@ -4,7 +4,8 @@ import Layout from "./containers/Layout";
 import PrivateRoutes from "./routes/PrivateRoutes";
 import { useSelector } from "react-redux";
 import LoginPage from "./pages/LoginPage";
-import Home from "./pages/protected/Home";
+import HomePage from "./containers/HomePage";
+
 
 function App() {
   const { token, role } = useSelector((state) => state.user.user);
@@ -17,7 +18,7 @@ function App() {
           isFarmer ? (
             <Route path="/app/farmer/*" element={<Layout />} />
           ) : (
-            <Route path="/app/buyer/*" element={<Home />} />
+            <Route path="/app/buyer/*" element={<HomePage />} />
           )
         ) : (
           <>
