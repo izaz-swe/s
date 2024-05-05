@@ -31,7 +31,7 @@ const Signup = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log("Submitted:", { email, name, phone, password,role });
+  
   };
 
   return (
