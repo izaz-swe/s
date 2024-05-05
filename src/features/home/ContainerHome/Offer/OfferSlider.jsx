@@ -9,7 +9,7 @@ const OfferSlider = () => {
   useEffect(() => {
     dispatch(getOffers());
   }, [dispatch]);
-  console.log(homeOffers);
+  
 
 
   const settings = {
