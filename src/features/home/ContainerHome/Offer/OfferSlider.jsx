@@ -16,7 +16,7 @@ const OfferSlider = () => {
     // dots: true,
     infinite: true,
     autoplay: true,
-    slidesToShow: 2, 
+    slidesToShow: 4, 
     slidesToScroll: 1,
     speed: 3000,
     autoplaySpeed: 1000,
@@ -31,7 +31,7 @@ const OfferSlider = () => {
             className=" flex flex-col items-center  group  py-2 px-4   relative rounded-xl "
           >
             <div className="relative">
-              <img src={homeOffer?.image[0]} alt="" className="w-full h-64" />
+              <img src={homeOffer?.image} alt="" className="w-full h-64" />
             </div>
             <h1 className="text-3xl text-center">{homeOffer?.offerName}</h1>
             <p className="text-2xl  font-semibold text-black py-2">
