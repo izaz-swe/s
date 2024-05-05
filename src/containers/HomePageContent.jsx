@@ -1,9 +1,10 @@
 import React from 'react'
-import routes from '../../routes/buyerRoute'
-import ErrorPage from '../ErrorPage'
-import { Route, Routes } from 'react-router-dom'
+import routes from '../routes/buyerRoute'
 
-const Home = () => {
+import { Route, Routes } from 'react-router-dom'
+import ErrorPage from '../pages/ErrorPage'
+
+const HomePageContent = () => {
   return (
     <div>
       <Routes>
@@ -24,4 +25,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default HomePageContent

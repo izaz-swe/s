@@ -1,10 +1,10 @@
 import { lazy } from "react";
 
-const dummy = lazy(()=> import("../pages/protected/Dummy"));
+const home = lazy(()=> import("../features/home/ContainerHome/Home.jsx"));
 const routes = [
   {
     path: "/",
-    component: dummy,
+    component: home,
   }
 ];
 
