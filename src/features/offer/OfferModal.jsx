@@ -15,7 +15,6 @@ import React, { useEffect, useState } from "react";
 import OfferModalSkeleton from "./OfferModalSkeleton";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategories, makeOffer } from "../../state/reducers/offer/offerSlice";
-import { privatePostFile } from "../../utils/apiCaller";
 import { CloudUpload } from "@mui/icons-material";
 
 const OfferModal = ({ handleClose }) => {
