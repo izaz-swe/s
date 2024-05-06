@@ -3,10 +3,12 @@ import storage from "redux-persist/lib/storage";
 import regReducer from "./reducers/registerSlice";
 import loginReducer from "./reducers/loginSlice";
 import offerReducer from "./reducers/offer/offerSlice";
+import orderSlice from "./reducers/order/orderSlice";
 const appReducer = combineReducers({
   reg: regReducer,
   user: loginReducer,
   offer: offerReducer,
+  order: orderSlice,
 });
 
 const rootReducer = (state, action) => {
