@@ -14,7 +14,7 @@ const Header = () => {
           </div>
           <div>
             <div className="flex flex-row gap-2 text-xl font-[Inter] w-full  ">
-              <a className="p-2 hover:text-white" href="">
+              <a className="p-2 hover:text-white" href="/app/buyer/">
                 Home
               </a>
               <a className="p-2 hover:text-white" href="/app/buyer/order">
@@ -75,7 +75,7 @@ const Header = () => {
                     onClick={() => setIsMenuOpen(false)}
                     className="flex flex-col justify-center items-center  w-1/2  text-xl font-semibold p-4 mx-auto gap-2 "
                   >
-                    <a className="p-2 hover:text-white" href="">
+                    <a className="p-2 hover:text-white" href="/app/buyer/">
                       Home
                     </a>
                     <a className="p-2 hover:text-white" href="/app/buyer/order">
