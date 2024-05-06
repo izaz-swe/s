@@ -5,6 +5,7 @@ import PrivateRoutes from "./routes/PrivateRoutes";
 import { useSelector } from "react-redux";
 import LoginPage from "./pages/LoginPage";
 import HomePage from "./containers/HomePage";
+import Signup from "./pages/Signup";
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         ) : (
           <>
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/signup" element={<Signup />} />
           </>
         )}
         <Route

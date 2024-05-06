@@ -1,12 +1,12 @@
 
 const Footer = () => {
     return (
-        <section id='Contact' className="my-10 px-5 bg-black sm:pt-5 text-white ">
+        <section id='Contact' className="mt-10 px-5 bg-black sm:pt-5 text-white ">
             <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
                 <div className="grid grid-cols-2 md:col-span-3 lg:grid-cols-6 gap-y-16 gap-x-12">
                     <div className="col-span-2 md:col-span-3 lg:col-span-2 lg:pr-8">
                     <img src="https://i.ibb.co/WGDBJSx/Group-32985.png" alt=""  className=""/>
-                        <p className="text-base leading-relaxed  mt-7 dark:text-snow-white-toned font-inter">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.</p>
+                        <p className="text-base leading-relaxed  mt-7 dark:text-snow-white-toned font-inter">Have questions or feedback? Reach out to our friendly team at soil@gmail.com. Stay Connected: Follow us on soil-to-factory team for the latest updates, promotions, and farmer stories.</p>
 
                         <ul className="flex items-center space-x-3 mt-9 dark:text-snow-white-toned">
                             <li>

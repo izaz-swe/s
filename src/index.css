@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer components {
+    .primary-gradient {
+      @apply bg-gradient-to-tr from-cyan-300  to-indigo-400 hover:from-cyan-300 hover:to-teal-200 hover:shadow-md;
+    }
+  
+    .btn-primary {
+      @apply bg-gradient-to-tr from-cyan-300  to-indigo-400 flex items-center  font-medium tracking-wide text-white capitalize transition-all duration-300  py-4 px-10 text-center   lg:px-8 xl:px-10 hover:bg-gradient-to-tr hover:from-cyan-300 hover:to-teal-200 hover:shadow-md rounded-md;
+    }
+  
+    .gradient-text {
+      @apply font-medium bg-clip-text text-transparent bg-gradient-to-tr from-teal-500 via-cyan-300 to-slate-500;
+    }
+}
