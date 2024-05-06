@@ -9,6 +9,7 @@ const initialState = {
   offers: [],
   homeOffers: [],
   offerDetails: {},
+  relatedOffers: [],
   isLoading: false,
   error: false,
   success: false,
@@ -67,6 +68,17 @@ export const getOfferDetails = createAsyncThunk(
     }
   }
 );
+export const getRelatedOffers = createAsyncThunk(
+  "offer/getRelatedOffers",
+  async (categoryId) => {
+    try {
+      const offers = await publicGet(`/offer/related/${categoryId}`);
+      return offers;
+    } catch (err) {
+      return err;
+    }
+  }
+);
 const offerSlice = createSlice({
   name: "offer",
   initialState,
@@ -81,7 +93,7 @@ const offerSlice = createSlice({
         state.isLoading = false;
         state.error = true;
         state.success = false;
-        // state.errorMessage = action.payload.message;
+        state.errorMessage = action.payload.message;
       })
       .addCase(makeOffer.fulfilled, (state) => {
         state.isLoading = false;
@@ -114,7 +126,7 @@ const offerSlice = createSlice({
         state.isLoading = false;
         state.error = true;
         state.success = false;
-        state.errorMessage = action.response;
+        state.errorMessage = action.payload;
       })
       .addCase(getOffersByUserId.fulfilled, (state, action) => {
         state.isLoading = false;
@@ -131,7 +143,7 @@ const offerSlice = createSlice({
         state.isLoading = false;
         state.error = true;
         state.success = false;
-        state.errorMessage = action.response;
+        state.errorMessage = action.payload;
       })
       .addCase(getOffers.fulfilled, (state, action) => {
         state.isLoading = false;
@@ -148,13 +160,30 @@ const offerSlice = createSlice({
         state.isLoading = false;
         state.error = true;
         state.success = false;
-        state.errorMessage = action.response;
+        state.errorMessage = action.payload;
       })
       .addCase(getOfferDetails.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = false;
         state.success = true;
         state.offerDetails = action.payload.data;
+      })
+      .addCase(getRelatedOffers.pending, (state) => {
+        state.isLoading = true;
+        state.error = false;
+        state.success = false;
+      })
+      .addCase(getRelatedOffers.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = true;
+        state.success = false;
+        state.errorMessage = action.payload;
+      })
+      .addCase(getRelatedOffers.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = false;
+        state.success = true;
+        state.relatedOffers = action.payload.data;
       });
   },
 });

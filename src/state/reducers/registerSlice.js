@@ -35,7 +35,7 @@ const regSlice = createSlice({
     .addCase(createUser.fulfilled, (state, action) => {
       state.isLoading = false;
       state.isError = false;
-      state.register = action.payload;
+      state.register = action.payload.data;
       state.success = true;
       state.error = ''
     })
