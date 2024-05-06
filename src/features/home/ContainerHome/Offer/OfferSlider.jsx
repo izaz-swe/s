@@ -42,7 +42,7 @@ const OfferSlider = () => {
           <div className="flex overflow-hidden w-full px-5">
             {homeOffers.slice(startIndex, startIndex + 4).map((card, index) => (
               <div
-                key={card.id}
+                key={card.index}
                 className={`flex justify-center items-center mx-auto transform transition-transform duration-300 p-5 rounded-xl ${
                   index === 0 ? "ml-auto" : ""
                 }`}
@@ -66,7 +66,7 @@ const OfferSlider = () => {
                       <span className="text-sm">TK/unit</span>{" "}
                     </h3>
                     <button className="btn bg-green-700 text-lg py-2 px-5 mt-2 rounded-lg text-white text-center hover:bg-blue-600  hover:text-black">
-                      Buy Now
+                      Details
                     </button>
                   </div>
                 </div>

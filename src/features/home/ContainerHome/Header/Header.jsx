@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { IoReorderThreeSharp } from "react-icons/io5";
-import { CiSearch, CiShoppingCart } from "react-icons/ci";
+import { CiSearch } from "react-icons/ci";
 import { Logout } from "@mui/icons-material";
 
 const Header = () => {
@@ -17,8 +17,8 @@ const Header = () => {
               <a className="p-2 hover:text-white" href="">
                 Home
               </a>
-              <a className="p-2 hover:text-white" href="">
-                Shop
+              <a className="p-2 hover:text-white" href="/app/buyer/order">
+               Order
               </a>
 
               <a className="p-2 hover:text-white" href="">
@@ -78,8 +78,8 @@ const Header = () => {
                     <a className="p-2 hover:text-white" href="">
                       Home
                     </a>
-                    <a className="p-2 hover:text-white" href="">
-                      Shop
+                    <a className="p-2 hover:text-white" href="/app/buyer/order">
+                    Order
                     </a>
 
                     <a className="p-2 hover:text-white" href="">

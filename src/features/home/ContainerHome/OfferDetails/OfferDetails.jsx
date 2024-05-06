@@ -1,8 +1,8 @@
 import { Box, Button, CardMedia, Grid, Typography } from "@mui/material";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Loader from "../../components/loader/Loader";
-import { getOfferDetails } from "../../state/reducers/offer/offerSlice";
+import Loader from "../../../../components/loader/Loader";
+import { getOfferDetails } from "../../../../state/reducers/offer/offerSlice";
 import { useParams } from "react-router-dom";
 
 const OfferDetails = () => {
