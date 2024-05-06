@@ -10,7 +10,7 @@ const OfferDetails = () => {
   const {offerId} = useParams();
   useEffect(()=> {
     dispatch(getOfferDetails(offerId));
-  }, []);
+  }, [dispatch,offerId]);
   const { offerDetails } = useSelector((state) => state.offer);
   return (
     <div>

@@ -25,6 +25,7 @@ export const Brands = () => {
     return (
 
         <div className="px-4 py-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 md:py-8">
+            <h1 className='text-center text-3xl font-bold py-5'>There are all busy For your Good health</h1>
             <div className="container relative z-[1] m-auto px-6 md:px-12">
 
 

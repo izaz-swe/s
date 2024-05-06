@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { IoReorderThreeSharp } from "react-icons/io5";
 import { CiSearch, CiShoppingCart } from "react-icons/ci";
+import { Logout } from "@mui/icons-material";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,17 +14,17 @@ const Header = () => {
           </div>
           <div>
             <div className="flex flex-row gap-2 text-xl font-[Inter] w-full  ">
-              <a className="p-2 hover:text-white" href="#home">
+              <a className="p-2 hover:text-white" href="">
                 Home
               </a>
-              <a className="p-2 hover:text-white" href="#Shop">
+              <a className="p-2 hover:text-white" href="">
                 Shop
               </a>
 
-              <a className="p-2 hover:text-white" href="#team">
+              <a className="p-2 hover:text-white" href="">
                 About us
               </a>
-              <a className="p-2 hover:text-white" href="#team">
+              <a className="p-2 hover:text-white" href="">
                 Contact
               </a>
             </div>
@@ -33,9 +34,9 @@ const Header = () => {
               {" "}
               <CiSearch />{" "}
             </button>
-            <button className="btn text-3xl hover:text-white">
+            <button className="btn text-3xl font-bold p-2 hover:text-white">
               {" "}
-              <CiShoppingCart />
+              <Logout/>
             </button>
           </div>
         </div>
@@ -74,24 +75,24 @@ const Header = () => {
                     onClick={() => setIsMenuOpen(false)}
                     className="flex flex-col justify-center items-center  w-1/2  text-xl font-semibold p-4 mx-auto gap-2 "
                   >
-                    <a className="p-2 hover:text-white" href="#home">
+                    <a className="p-2 hover:text-white" href="">
                       Home
                     </a>
-                    <a className="p-2 hover:text-white" href="#Shop">
+                    <a className="p-2 hover:text-white" href="">
                       Shop
                     </a>
 
-                    <a className="p-2 hover:text-white" href="#team">
+                    <a className="p-2 hover:text-white" href="">
                       About us
                     </a>
-                    <a className="p-2 hover:text-white" href="#team">
+                    <a className="p-2 hover:text-white" href="">
                       Contact
                     </a>
 
                     <div className="">
-                      <button className="bg-[#FF7043]  text-white py-3 px-2 font-bold">
+                      <button className=" text-3xl  py-3 px-2 font-bold">
                         {" "}
-                        SignIn
+                       <Logout/>
                       </button>
                     </div>
                   </div>

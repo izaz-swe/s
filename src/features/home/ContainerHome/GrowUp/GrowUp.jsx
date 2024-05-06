@@ -4,7 +4,7 @@ const GrowUp = () => {
     return (
         <section className="py-10  sm:py-16 lg:py-24">
             <div className=" px-4 mx-auto sm:px-6 lg:px-8">
-                <div className="grid items-center md:grid-cols-2 gap-y-10 md:gap-x-20">
+                <div className="grid items-center lg:grid-cols-2 gap-y-10 md:gap-x-20">
                     <div className=" sm:pr-0 ">
                         <div className="relative max-w-xs mb-12 mx-auto">
                             <img className="object-left-top  rounded-md" src="https://images.pexels.com/photos/2519332/pexels-photo-2519332.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" />
@@ -13,9 +13,9 @@ const GrowUp = () => {
                         </div>
                     </div>
  
-                    <div className="flex flex-col justify-center items-start">
+                    <div className="flex flex-col justify-center items-center lg:items-start md:px-20">
                         <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl dark:text-snow-white">Grow business with us.</h2>
-                        <p className="mt-4 text-base leading-relaxed text-dark-toned dark:text-snow-white-toned font-inter ">We are not only solution providers but also proving opportunities to other to do business with us.Basically they will be our solution source like venue 💒, dressing costume 💍, food service 🍽 etc.</p>
+                        <p className="mt-4 text-base leading-relaxed text-dark-toned dark:text-snow-white-toned font-inter ">At soil-to-factory, we're passionate about connecting farmers directly to consumers, fostering sustainable agriculture practices, and supporting local communities. Our platform serves as a bridge between farmers and consumers, ensuring that you receive the freshest, highest quality produce while empowering local farmers to thrive.</p>
 
 
 
@@ -24,7 +24,7 @@ const GrowUp = () => {
                                 <div className="flex">
                                     <h6 className="mr-2 text-4xl font-bold md:text-5xl text-slate-800
                                     dark:text-snow-white">
-                                        20+
+                                        20,000+
                                     </h6>
                                     <div className="flex items-center justify-center rounded-full bg-teal-400 w-7 h-7 ">
                                         <svg
@@ -42,7 +42,7 @@ const GrowUp = () => {
                                         </svg>
                                     </div>
                                 </div>
-                                <p className="mb-2 font-bold md:text-lg text-dark-toned dark:text-snow-white-toned">Successfull Events</p>
+                                <p className="mb-2 text-center font-bold md:text-lg text-dark-toned dark:text-snow-white-toned">Happy Customer</p>
 
                             </div>
                         </div>
