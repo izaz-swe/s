@@ -1,6 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   getOfferDetails,
   getRelatedOffers,
@@ -8,20 +8,47 @@ import {
 import { PriceChange } from "@mui/icons-material";
 import Slider from "../../../components/Slider/Slider";
 import Loader from "../../../components/loader/Loader";
+import { createOrder } from "../../../state/reducers/order/orderSlice";
 
 const Details = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const { offerDetails, relatedOffers } = useSelector((state) => state.offer);
-
+  const { token } = useSelector((state) => state.user.user);
+  const [address, setAddress] = useState("");
   useEffect(() => {
     dispatch(getOfferDetails(id));
     dispatch(getRelatedOffers(offerDetails.categoryId));
-  }, [dispatch, id]);
-  console.log(id);
+  }, [dispatch, offerDetails.categoryId, id]);
+
+  const handleAddressChange = (e) => {
+    setAddress(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const data = {
+      offerId: offerDetails.offerId,
+      farmerId: offerDetails.userId,
+      status: "pending",
+      totalPrice: offerDetails.totalPrice,
+      address,
+    };
+    dispatch(createOrder({ token, data }));
+  };
+  const { success } = useSelector((state) => state.order);
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (success) {
+      navigate("/app/buyer/order");
+    }
+  }, [navigate, success]);
+
   return (
     <div>
-      <div className="container mx-auto">
+      <div className="">
         <div className=" container mx-auto flex flex-col lg:flex-row md:gap-20 my-10">
           <div className="mx-auto">
             <img src={offerDetails?.image} className="rounded-lg" alt="" />
@@ -62,11 +89,37 @@ const Details = () => {
               <h2>{offerDetails?.farmerDetails?.name}</h2>
               <h2>{offerDetails?.farmerDetails?.phone}</h2>
             </div>
-            <button className="btn px-5 py-2 bg-green-600 mx-auto text-white w-2/3 rounded-sm">Order</button>
+          </div>
+        </div>
+        <div className="bg-gray-100">
+          <div className=" container mx-auto flex flex-col justify-center  py-5 px-8">
+            <h1 className="text-2xl text-center py-5 font-semibold">
+              Please enter your shipping address{" "}
+            </h1>
+            <form
+              className="flex flex-row gap-10 justify-center  items-center"
+              onSubmit={handleSubmit}
+              action=""
+            >
+              <input
+                type="text"
+                className="block border border-grey-light w-1/3 mx-auto text-black px-3 py-5 rounded-md mb-4"
+                name="address"
+                placeholder="Please enter your address"
+                onChange={handleAddressChange}
+                required
+              />
+              <button
+                type="submit"
+                className="btn px-2 py-5 bg-green-600 mx-auto text-white w-1/3 rounded-md"
+              >
+                Order
+              </button>
+            </form>
           </div>
         </div>
       </div>
-      <div className=" bg-gray-200 md:px-10 py-5">
+      <div className=" bg-gray-300 md:px-10 py-5">
         <div className="container  mx-auto">
           <h1 className=" text-center font-bold text-3xl">Related Offers</h1>
           {relatedOffers.length > 0 ? (

@@ -18,11 +18,11 @@ const Header = () => {
                 Home
               </a>
               <a className="p-2 hover:text-white" href="/app/buyer/order">
-               Order
+                Order
               </a>
 
-              <a className="p-2 hover:text-white" href="">
-                About us
+              <a className="p-2 hover:text-white" href="/app/buyer/allOffers">
+                Offers
               </a>
               <a className="p-2 hover:text-white" href="">
                 Contact
@@ -36,7 +36,7 @@ const Header = () => {
             </button>
             <button className="btn text-3xl font-bold p-2 hover:text-white">
               {" "}
-              <Logout/>
+              <Logout />
             </button>
           </div>
         </div>
@@ -79,11 +79,14 @@ const Header = () => {
                       Home
                     </a>
                     <a className="p-2 hover:text-white" href="/app/buyer/order">
-                    Order
+                      Order
                     </a>
 
-                    <a className="p-2 hover:text-white" href="">
-                      About us
+                    <a
+                      className="p-2 hover:text-white"
+                      href="/app/buyer/allOffers"
+                    >
+                      Offers
                     </a>
                     <a className="p-2 hover:text-white" href="">
                       Contact
@@ -92,7 +95,7 @@ const Header = () => {
                     <div className="">
                       <button className=" text-3xl  py-3 px-2 font-bold">
                         {" "}
-                       <Logout/>
+                        <Logout />
                       </button>
                     </div>
                   </div>
