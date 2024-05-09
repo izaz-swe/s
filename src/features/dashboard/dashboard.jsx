@@ -3,10 +3,7 @@ import DashboardAmountCardSkeleton from "../../components/cards/DashboardAmountC
 import DashboardAmountCard from "../../components/cards/DashboardAmountCard";
 import BarChart from "./components/BarChart";
 import LineChart from "./components/LineChart";
-import OrderCard from "../../components/cards/OrderCard";
-import TitleCard from "../../components/cards/TitleCard";
-import { Typography } from "@mui/material";
-import { CancelScheduleSend, EventAvailable, LocalMall, LocalShipping } from "@mui/icons-material";
+import OrderHead from "../farmer/order/OrderHead";
 
 const dashboard = () => {
   const isLoading = false;
@@ -69,35 +66,7 @@ const dashboard = () => {
           </>
         )}
       </div>
-      <TitleCard title="Orders">
-        <Typography variant="body2">This Month</Typography>
-        <div className="grid sm:grid-cols-1 lg:grid-cols-4 mt-2 md:grid-cols-3 gap-4">
-          <OrderCard
-            text="New Orders"
-            count={0}
-            cardColor="#6495ED"
-            icon={<LocalMall sx={{ fontSize: "50px" }} />}
-          />
-         <OrderCard
-            text="Cancelled"
-            count={0}
-            cardColor="#8A2BE2"
-            icon={<CancelScheduleSend sx={{ fontSize: "50px" }} />}
-          />
-          <OrderCard
-            text="On Delivery"
-            count={0}
-            cardColor="#5DADE2"
-            icon={<LocalShipping sx={{ fontSize: "50px" }} />}
-          />
-          <OrderCard
-            text="Delivered"
-            count={0}
-            cardColor="#F1948A"
-            icon={<EventAvailable sx={{ fontSize: "50px" }} />}
-          />
-        </div>
-      </TitleCard>
+      <OrderHead/>
       <div className="grid lg:grid-cols-2 mt-4 grid-cols-1 gap-6">
         <BarChart />
         <LineChart />

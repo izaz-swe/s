@@ -1,4 +1,4 @@
-import { Add, Dashboard, Home, PostAdd } from "@mui/icons-material";
+import { Add, Dashboard, PostAdd, ShoppingCartCheckoutOutlined } from "@mui/icons-material";
 const routes = [
   {
     path: "/app/farmer/dashboard",
@@ -23,17 +23,10 @@ const routes = [
     ] 
   },
   {
-    path: "",
-    icon: <Home />,
-    name: "Order",
-    submenu: [
-      {
-        path: "/app/farmer/sale",
-        icon: <Dashboard />,
-        name: "Pending"
-      }
-    ] 
-  }
+    path: "/app/farmer/order",
+    icon: <ShoppingCartCheckoutOutlined />,
+    name: "Orders"
+  },
 ];
 
 export default routes;
