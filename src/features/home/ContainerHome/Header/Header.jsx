@@ -1,9 +1,20 @@
 import { useState } from "react";
 import { IoReorderThreeSharp } from "react-icons/io5";
 import { CiSearch } from "react-icons/ci";
-import { Logout } from "@mui/icons-material";
+import { Login, Logout } from "@mui/icons-material";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
+  function logoutUser() {
+    localStorage.clear();
+    window.location.href = "/login";
+  }
+  function loginUser() {
+    navigate("/login");
+  }
+  const { isAuthenticated } = useSelector((state) => state.user);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <div className="   text-black bg-green-700 px-2">
@@ -34,9 +45,12 @@ const Header = () => {
               {" "}
               <CiSearch />{" "}
             </button>
-            <button className="btn text-3xl font-bold p-2 hover:text-white">
-              {" "}
-              <Logout />
+            <button
+              onClick={isAuthenticated ? logoutUser : loginUser}
+              className="btn text-xl font-bold p-2 hover:text-white"
+            >
+              {isAuthenticated ? <Logout /> : <Login />}
+              {isAuthenticated ? " Log Out" : " Log In"}
             </button>
           </div>
         </div>
@@ -93,9 +107,12 @@ const Header = () => {
                     </a>
 
                     <div className="">
-                      <button className=" text-3xl  py-3 px-2 font-bold">
-                        {" "}
-                        <Logout />
+                      <button
+                        onClick={isAuthenticated ? logoutUser : loginUser}
+                        className=" text-xl  py-3 px-2 font-bold"
+                      >
+                        {isAuthenticated ? <Logout /> : <Login />}
+                        {isAuthenticated ? " Log Out" : " Log In"}
                       </button>
                     </div>
                   </div>

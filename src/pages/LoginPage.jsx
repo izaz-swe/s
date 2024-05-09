@@ -12,12 +12,12 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import { createUserLogin, errorClean } from "../state/reducers/loginSlice";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -169,6 +169,13 @@ const LoginPage = () => {
               Login
             </Button>
           </form>
+          <div className="text-center">
+            Are you new here ?{" "}
+            <Button>
+              {" "}
+              <Link to="/signup">Sign Up</Link>
+            </Button>
+          </div>
         </CardContent>
       </Card>
     </Box>
