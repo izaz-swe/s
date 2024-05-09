@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { IoReorderThreeSharp } from "react-icons/io5";
-import { CiSearch, CiShoppingCart } from "react-icons/ci";
+import { CiSearch } from "react-icons/ci";
 import { Logout } from "@mui/icons-material";
 
 const Header = () => {
@@ -14,15 +14,15 @@ const Header = () => {
           </div>
           <div>
             <div className="flex flex-row gap-2 text-xl font-[Inter] w-full  ">
-              <a className="p-2 hover:text-white" href="">
+              <a className="p-2 hover:text-white" href="/app/buyer/">
                 Home
               </a>
-              <a className="p-2 hover:text-white" href="">
-                Shop
+              <a className="p-2 hover:text-white" href="/app/buyer/order">
+                Order
               </a>
 
-              <a className="p-2 hover:text-white" href="">
-                About us
+              <a className="p-2 hover:text-white" href="/app/buyer/allOffers">
+                Offers
               </a>
               <a className="p-2 hover:text-white" href="">
                 Contact
@@ -36,7 +36,7 @@ const Header = () => {
             </button>
             <button className="btn text-3xl font-bold p-2 hover:text-white">
               {" "}
-              <Logout/>
+              <Logout />
             </button>
           </div>
         </div>
@@ -75,15 +75,18 @@ const Header = () => {
                     onClick={() => setIsMenuOpen(false)}
                     className="flex flex-col justify-center items-center  w-1/2  text-xl font-semibold p-4 mx-auto gap-2 "
                   >
-                    <a className="p-2 hover:text-white" href="">
+                    <a className="p-2 hover:text-white" href="/app/buyer/">
                       Home
                     </a>
-                    <a className="p-2 hover:text-white" href="">
-                      Shop
+                    <a className="p-2 hover:text-white" href="/app/buyer/order">
+                      Order
                     </a>
 
-                    <a className="p-2 hover:text-white" href="">
-                      About us
+                    <a
+                      className="p-2 hover:text-white"
+                      href="/app/buyer/allOffers"
+                    >
+                      Offers
                     </a>
                     <a className="p-2 hover:text-white" href="">
                       Contact
@@ -92,7 +95,7 @@ const Header = () => {
                     <div className="">
                       <button className=" text-3xl  py-3 px-2 font-bold">
                         {" "}
-                       <Logout/>
+                        <Logout />
                       </button>
                     </div>
                   </div>
