@@ -1,6 +1,23 @@
 import { MdDeleteForever } from "react-icons/md";
+import { useSelector } from "react-redux";
+import { api } from "../../configs/variable";
 
 const DataTableShow = ({ component }) => {
+  const {token} = useSelector(state=> state.user.user);
+  const handlePayment = (orderId) => {
+    fetch(`${api}/order/payment`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        token: token,
+      },
+      body: JSON.stringify({orderId}),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        window.location.replace(result.data);
+      });
+  }
   return (
     <table className=" table gap-5 w-full container mx-auto ">
       <thead>
@@ -38,13 +55,11 @@ const DataTableShow = ({ component }) => {
               <p>{c?.address} </p>
             </td>
             <td className="px-6 py-4">
-              <button className="btn ">
                 {c?.status == "pending" ? (
-                  <button className="btn  btn-sm">Pay</button>
+                  <button onClick={()=>handlePayment(c?.orderId)} className="btn btn-sm">Pay</button>
                 ) : (
                   <span className="text-green-600 text-xl">Paid</span>
                 )}
-              </button>
             </td>
           </tr>
         ))}
@@ -54,21 +69,3 @@ const DataTableShow = ({ component }) => {
 };
 
 export default DataTableShow;
-{
-  /* <tr key={i} className="text-center py-5  ">
-              <th>
-                
-              </th>
-              <td></td>
-              <td className="flex flex-col">
-                
-              </td>
-              <td></td>
-              <td className="flex flex-col">
-              
-              </td>
-              <td className="text-center">
-                
-              </td>
-            </tr> */
-}

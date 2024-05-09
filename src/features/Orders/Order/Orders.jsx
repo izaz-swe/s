@@ -16,7 +16,6 @@ const Order = () => {
   useEffect(() => {
     dispatch(getOrderByBuyerId(token))
   }, [dispatch,token]);
- console.log(buyerOrders)
   return (
     <div className="flex flex-row">
       

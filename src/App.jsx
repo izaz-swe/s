@@ -4,8 +4,9 @@ import Layout from "./containers/Layout";
 import PrivateRoutes from "./routes/PrivateRoutes";
 import { useSelector } from "react-redux";
 import LoginPage from "./pages/LoginPage";
-import HomePage from "./containers/HomePage";
+import BuyerPage from "./containers/BuyerPage";
 import Signup from "./pages/Signup";
+import HomePage from "./pages/HomePage";
 
 
 function App() {
@@ -19,10 +20,11 @@ function App() {
           isFarmer ? (
             <Route path="/app/farmer/*" element={<Layout />} />
           ) : (
-            <Route path="/app/buyer/*" element={<HomePage />} />
+            <Route path="/app/buyer/*" element={<BuyerPage />} />
           )
         ) : (
           <>
+            <Route path="" element={<HomePage/>}/>
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<Signup />} />
           </>
@@ -30,7 +32,7 @@ function App() {
         <Route
           path="*"
           element={
-            <Navigate to={token  ? isFarmer ? "/app/farmer/dashboard" : "/app/buyer/": "/login"} replace />
+            <Navigate to={token  ? isFarmer ? "/app/farmer/dashboard" : "/app/buyer/": ""} replace />
           }
         />
       </Routes>

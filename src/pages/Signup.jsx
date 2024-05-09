@@ -1,9 +1,9 @@
-import { Radio } from "@mui/material";
+import { Button, Radio } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createUser } from "../state/reducers/registerSlice";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -30,8 +30,6 @@ const Signup = () => {
   const handleRoleChange = (e) => {
     setRole(e.target.value);
   };
-
-  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -118,42 +116,24 @@ const Signup = () => {
                 />{" "}
                 Buyer
               </div>
+
+              <div className="text-center text-sm text-grey-dark mt-4">
+                By signing up, you agree to the Terms of Service and Privacy
+                Policy
+              </div>
               <button
                 type="submit"
-                
                 className="btn w-full text-center py-3 border-2 rounded bg-green text-white bg-green-600 focus:outline-none my-1"
               >
                 Create Account
               </button>
-
-              <div className="text-center text-sm text-grey-dark mt-4">
-                By signing up, you agree to the
-                <a
-                  className="no-underline border-b border-grey-dark text-grey-dark"
-                  href="#"
-                >
-                  Terms of Service
-                </a>{" "}
-                and
-                <a
-                  className="no-underline border-b border-grey-dark text-grey-dark"
-                  href="#"
-                >
-                  Privacy Policy
-                </a>
-              </div>
             </form>
-          </div>
-
-          <div className="text-grey-dark mt-6">
-            Already have an account?
-            <a
-              className="no-underline text-blue-700 border-b border-blue text-blue"
-              href="../login/"
-            >
-              Log in
-            </a>
-            .
+            <div className="text-grey-dark mt-6 text-center">
+              Already have an account ?
+              <Button>
+                <Link to="/login">Log in</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </div>
