@@ -1,6 +1,9 @@
 import { Radio } from "@mui/material";
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { createUser } from "../state/reducers/registerSlice";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -8,7 +11,7 @@ const Signup = () => {
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-
+  const dispatch = useDispatch();
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
@@ -28,11 +31,32 @@ const Signup = () => {
     setRole(e.target.value);
   };
 
+  
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-  
+    if (role) {
+      const userData = {
+        name,
+        email,
+        password,
+        phone,
+        role,
+      };
+      dispatch(createUser(userData));
+    } else {
+      toast("selected role");
+    }
   };
+
+  const { success } = useSelector((state) => state.reg);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (success) {
+      navigate("/login");
+    }
+  }, [navigate, success]);
 
   return (
     <section className="bg-white">
@@ -47,6 +71,7 @@ const Signup = () => {
                 name="fullname"
                 placeholder="Full Name"
                 onChange={handleNameChange}
+                required
               />
 
               <input
@@ -55,6 +80,7 @@ const Signup = () => {
                 name="email"
                 placeholder="Email"
                 onChange={handleEmailChange}
+                required
               />
 
               <input
@@ -63,6 +89,7 @@ const Signup = () => {
                 name="password"
                 placeholder="Password"
                 onChange={handlePasswordChange}
+                required
               />
               <input
                 type="text"
@@ -70,26 +97,30 @@ const Signup = () => {
                 name="phone"
                 placeholder="Phone"
                 onChange={handlePhoneChange}
+                required
               />
-              <div className="flex gap-2   items-center text-black"><h3 className="text-xl">Role:</h3>
-                <Radio 
-                  name="type" 
-                  value="Farmer" 
-                  label="Farmer" 
-                  onChange={handleRoleChange} 
-                  checked={role === 'Farmer'} 
-                />Farmer
-                <Radio 
-                  name="type" 
-                  value="Buyer" 
-                  label="Buyer" 
-                  onChange={handleRoleChange} 
-                  checked={role === 'Buyer'} 
-                /> Buyer
-                
+              <div className="flex gap-2   items-center text-black">
+                <h3 className="text-xl">Role:</h3>
+                <Radio
+                  name="type"
+                  value="farmer"
+                  label="farmer"
+                  onChange={handleRoleChange}
+                  checked={role === "farmer"}
+                />
+                Farmer
+                <Radio
+                  name="type"
+                  value="buyer"
+                  label="buyer"
+                  onChange={handleRoleChange}
+                  checked={role === "buyer"}
+                />{" "}
+                Buyer
               </div>
               <button
                 type="submit"
+                
                 className="btn w-full text-center py-3 border-2 rounded bg-green text-white bg-green-600 focus:outline-none my-1"
               >
                 Create Account
@@ -117,7 +148,7 @@ const Signup = () => {
           <div className="text-grey-dark mt-6">
             Already have an account?
             <a
-              className="no-underline text-black border-b border-blue text-blue"
+              className="no-underline text-blue-700 border-b border-blue text-blue"
               href="../login/"
             >
               Log in
