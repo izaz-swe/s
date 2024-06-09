@@ -37,6 +37,9 @@ const LoginPage = () => {
       dispatch(createUserLogin({ email, password }));
       setEmail("");
       setPassword("");
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
     }
   };
   useEffect(() => {

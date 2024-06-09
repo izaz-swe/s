@@ -7,34 +7,19 @@ import LoginPage from "./pages/LoginPage";
 import BuyerPage from "./containers/BuyerPage";
 import Signup from "./pages/Signup";
 import HomePage from "./pages/HomePage";
-
+import ErrorPage from "./pages/ErrorPage";
+import AccessDenied from "./pages/AccessDenied";
 
 function App() {
-  const { token, role } = useSelector((state) => state.user.user);
-  let isFarmer = false;
-  if( role === "farmer" ) isFarmer= true;
   return (
     <BrowserRouter>
       <Routes>
-        {token ? (
-          isFarmer ? (
-            <Route path="/app/farmer/*" element={<Layout />} />
-          ) : (
-            <Route path="/app/buyer/*" element={<BuyerPage />} />
-          )
-        ) : (
-          <>
-            <Route path="" element={<HomePage/>}/>
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/signup" element={<Signup />} />
-          </>
-        )}
-        <Route
-          path="*"
-          element={
-            <Navigate to={token  ? isFarmer ? "/app/farmer/dashboard" : "/app/buyer/": ""} replace />
-          }
-        />
+        <Route path="/*" element={<BuyerPage />} />
+        <Route path="/app/farmer/*" element={<Layout />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="access-denied" element={<AccessDenied/>}/>
+        <Route path="/*" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>
   );

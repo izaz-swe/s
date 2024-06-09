@@ -1,7 +1,7 @@
 import { Add, Dashboard, PostAdd, ShoppingCartCheckoutOutlined } from "@mui/icons-material";
 const routes = [
   {
-    path: "/app/farmer/dashboard",
+    path: "/app/farmer/",
     icon: <Dashboard />,
     name: "Dashboard"
   },

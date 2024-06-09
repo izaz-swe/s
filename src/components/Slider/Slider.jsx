@@ -55,7 +55,7 @@ const Slider = (offers) => {
                     <span className="text-sm">TK/unit</span>{" "}
                   </h3>
                   <button  className="btn bg-green-700 text-lg py-2 px-5 mt-2 rounded-lg text-white text-center hover:bg-blue-600  hover:text-black">
-                   <Link to={`/app/buyer/details/${card.offerId}`}>
+                   <Link to={`/details/${card.offerId}`}>
                    Details
                    </Link>
                   </button>
