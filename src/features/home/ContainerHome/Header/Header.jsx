@@ -14,30 +14,37 @@ const Header = () => {
   function loginUser() {
     navigate("/login");
   }
-  const { isAuthenticated } = useSelector((state) => state.user);
+  const { isAuthenticated, user } = useSelector((state) => state.user);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <div className="   text-black bg-green-700 px-2">
       <div className=" container mx-auto ">
         <div className=" px-2 pt-2   hidden lg:flex items-center font-[Inter] lg:flex-row  lg:justify-between max-w-full">
           <div className="p-2 flex flex-row  text-2xl  uppercase font-bold">
-            <img src="https://i.ibb.co/kXFWR70/Group-12.png" alt="" />
+            <img src="https://i.ibb.co/kXFWR70/Group-12.png" alt="dff" />
           </div>
           <div>
             <div className="flex flex-row gap-2 text-xl font-[Inter] w-full  ">
-              <a className="p-2 hover:text-white" href="/app/buyer/">
+              <a className="p-2 hover:text-white" href="/">
                 Home
               </a>
-              <a className="p-2 hover:text-white" href="/app/buyer/order">
+              <a className="p-2 hover:text-white" href="/order">
                 Order
               </a>
 
-              <a className="p-2 hover:text-white" href="/app/buyer/allOffers">
+              <a className="p-2 hover:text-white" href="/allOffers">
                 Offers
               </a>
               <a className="p-2 hover:text-white" href="">
                 Contact
               </a>
+              {user.role == "farmer" ? (
+                <a className="p-2 hover:text-white" href="/app/farmer/">
+                  Dashboard
+                </a>
+              ) : (
+                ""
+              )}
             </div>
           </div>
           <div className="flex flex-row">
@@ -89,23 +96,25 @@ const Header = () => {
                     onClick={() => setIsMenuOpen(false)}
                     className="flex flex-col justify-center items-center  w-1/2  text-xl font-semibold p-4 mx-auto gap-2 "
                   >
-                    <a className="p-2 hover:text-white" href="/app/buyer/">
+                    <a className="p-2 hover:text-white" href="/">
                       Home
                     </a>
-                    <a className="p-2 hover:text-white" href="/app/buyer/order">
+                    <a className="p-2 hover:text-white" href="/order">
                       Order
                     </a>
-
-                    <a
-                      className="p-2 hover:text-white"
-                      href="/app/buyer/allOffers"
-                    >
+                    <a className="p-2 hover:text-white" href="/allOffers">
                       Offers
                     </a>
                     <a className="p-2 hover:text-white" href="">
                       Contact
                     </a>
-
+                    {user.role == "farmer" ? (
+                      <a className="p-2 hover:text-white" href="/app/farmer/">
+                        Dashboard
+                      </a>
+                    ) : (
+                      ""
+                    )}
                     <div className="">
                       <button
                         onClick={isAuthenticated ? logoutUser : loginUser}

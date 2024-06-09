@@ -5,7 +5,7 @@ const dummy = lazy(()=> import("../pages/protected/Dummy"));
 const orderPage = lazy(()=> import("../pages/protected/FarmerOrderPage"));
 const routes = [
   {
-    path: "/dashboard",
+    path: "/",
     component: dashboard
   },
   {

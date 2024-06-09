@@ -42,7 +42,7 @@ const Details = () => {
   const navigate = useNavigate();
   useEffect(() => {
     if (success) {
-      navigate("/app/buyer/order");
+      navigate("/order");
     }
   }, [navigate, success]);
 
