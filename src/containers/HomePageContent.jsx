@@ -23,7 +23,7 @@ const HomePageContent = () => {
           })}
         </Route>
         <Route path="/blog" element={<BlogPage/>}/>
-        <Route path="/track" element={<TrackingPage/>}/>
+        <Route path="/track/:id" element={<TrackingPage/>}/>
       </Routes>
     </div>
   );

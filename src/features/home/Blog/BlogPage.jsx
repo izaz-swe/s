@@ -31,7 +31,8 @@ const BlogPage = () => {
   
   return (
     <div className='container mx-auto'>
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <h1 className='font-bold text-xl text-blue-700 flex justify-center py-5'>Learn from here </h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {posts.map((post) => (
         <BlogCard key={post.id} {...post} />
       ))}

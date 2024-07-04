@@ -38,6 +38,9 @@ const Header = () => {
               <a className="p-2 hover:text-white" href="/track">
                 Track
               </a>
+              <a className="p-2 hover:text-white" href="/blog">
+                Blog
+              </a>
               {user.role == "farmer" ? (
                 <a className="p-2 hover:text-white" href="/app/farmer/">
                   Dashboard
@@ -107,6 +110,9 @@ const Header = () => {
                     </a>
                     <a className="p-2 hover:text-white" href="/track">
                       Track
+                    </a>
+                    <a className="p-2 hover:text-white" href="/blog">
+                      Blog
                     </a>
                     {user.role == "farmer" ? (
                       <a className="p-2 hover:text-white" href="/app/farmer/">

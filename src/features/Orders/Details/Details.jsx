@@ -27,7 +27,7 @@ const Details = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+ console.log(offerDetails?.offerId)
     const data = {
       offerId: offerDetails.offerId,
       farmerId: offerDetails.userId,

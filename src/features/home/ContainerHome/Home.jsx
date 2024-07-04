@@ -1,7 +1,10 @@
 import Banner from "./Banner/Banner";
 import { Brands } from "./Brand/Brands";
+import { Faq } from "./Faq/Faq";
 import GrowUp from "./GrowUp/GrowUp";
 import OfferSlider from "./Offer/OfferSlider";
+import Team from "./Team/Team";
+import Testimonials from "./Testimonals/Testimonals";
 
 
 const Home = () => {
@@ -11,6 +14,9 @@ const Home = () => {
             <Banner/>
             <OfferSlider/>
             <Brands/>
+            <Testimonials/>
+            <Faq/>
+            <Team/>
         </div>
     );
 };

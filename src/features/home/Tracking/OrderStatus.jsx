@@ -2,14 +2,17 @@ import { AssignmentReturn, CheckRounded, LocalShipping, PendingActions } from "@
 import { LinearProgress } from "@mui/material";
 import React from "react";
 
-const OrderStatus = () => {
+
+const OrderStatus = ({component}) => {
+ 
+  console.log("Component received",component)
   return (
     <section>
       <div className="p-4 max-w-screen-2xl mx-auto">
         <div className="h-full bg-gray-100 bg-opacity-40 px-8 pt-9 pb-24 rounded-lg overflow-hidden text-center relative">
           <div className="flex justify-around text-lg font-medium">
-            <h2 className="">Order ID:</h2>
-            <h2 className="">Delivered by:</h2>
+            <h2 className="">Order ID:  {component?.offerDetails?._id}</h2>
+            <h2 className="">Delivered by: Rider </h2>
           </div>
           <hr />
           <div className="max-w-5xl mx-auto mt-20">
@@ -43,17 +46,18 @@ const OrderStatus = () => {
           <div className="flex justify-between text-start font-medium">
             <div className="w-1/2">
               <div className="flex">
-                <p className="mb-2 mr-3 text-amber-500">Name:</p>
+                <p className="mb-2 mr-3 text-amber-500">Name: {component?.offerDetails?.offerName} </p>
                 <p></p>
               </div>
               <div className="flex">
-                <p className="mb-2 mr-3 text-amber-500">Location:</p>
+                <p className="mb-2 mr-3 text-amber-500">Location: </p>
                 <p>anywhere</p>
               </div>
               <div className="flex">
-                <p className="mb-2 mr-3 text-amber-500">Payment:</p>
+                <p className="mb-2 mr-3 text-amber-500">Payment:  </p>{component?.totalPrice} tk
                 <p></p>
               </div>
+              
             </div>
             <div className="w-1/2">
               <div className="flex">
@@ -61,7 +65,7 @@ const OrderStatus = () => {
                 <p>anytime</p>
               </div>
               <div className="flex">
-                <p className="mb-2 mr-3 text-amber-500">Delivery Location:</p>
+                <p className="mb-2 mr-3 text-amber-500">Delivery Location: {component?.address}</p>
                 <p></p>
               </div>
               <div className="flex">
