@@ -7,7 +7,8 @@ const BlogCard = ({ title, description, youtubeLink }) => {
 
   return (
     <div className="p-4 bg-white rounded-lg shadow-md">
-      <iframe
+     <div className="flex justify-center">
+     <iframe
         width="200"
         height="100"
         src={youtubeLink}
@@ -17,6 +18,7 @@ const BlogCard = ({ title, description, youtubeLink }) => {
         referrerpolicy="strict-origin-when-cross-origin"
         allowfullscreen
       ></iframe>
+     </div>
       <div className="p-4">
         <h3 className="font-bold text-lg mb-2">{title}</h3>
         <p className="text-gray-700">
