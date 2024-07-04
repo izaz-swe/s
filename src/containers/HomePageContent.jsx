@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "../features/home/ContainerHome/Home.jsx";
 import PrivateRoutes from "../routes/PrivateRoutes.jsx";
 import BlogPage from "../features/home/Blog/BlogPage.jsx";
+import TrackingPage from "../features/home/Tracking/TrackingPage.jsx";
 const HomePageContent = () => {
   return (
     <div>
@@ -22,6 +23,7 @@ const HomePageContent = () => {
           })}
         </Route>
         <Route path="/blog" element={<BlogPage/>}/>
+        <Route path="/track" element={<TrackingPage/>}/>
       </Routes>
     </div>
   );

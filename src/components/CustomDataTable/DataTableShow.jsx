@@ -26,8 +26,8 @@ const DataTableShow = ({ component }) => {
           <th>Name</th>
           <th>Weight</th>
           <th>Total Price</th>
-          <th>Address</th>
           <th>Payment</th>
+          <th>Track</th>
         </tr>
       </thead>
       <tbody className=" py-5">
@@ -52,14 +52,14 @@ const DataTableShow = ({ component }) => {
             </td>
             <td className="px-6 py-4">{c?.totalPrice}</td>
             <td className="px-6 py-4">
-              <p>{c?.address} </p>
-            </td>
-            <td className="px-6 py-4">
                 {c?.status == "pending" ? (
                   <button onClick={()=>handlePayment(c?.orderId)} className="btn btn-sm">Pay</button>
                 ) : (
                   <span className="text-green-600 text-xl">Paid</span>
                 )}
+            </td>
+            <td className="px-6 py-4">
+              <p>Track </p>
             </td>
           </tr>
         ))}
