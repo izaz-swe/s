@@ -4,7 +4,7 @@ import { CiSearch } from "react-icons/ci";
 import { Login, Logout } from "@mui/icons-material";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
+import logo from "../../../../assets/footer_logo.png"
 const Header = () => {
   const navigate = useNavigate();
   function logoutUser() {
@@ -20,8 +20,8 @@ const Header = () => {
     <div className="   text-black bg-green-700 px-2">
       <div className=" container mx-auto ">
         <div className=" px-2 pt-2   hidden lg:flex items-center font-[Inter] lg:flex-row  lg:justify-between max-w-full">
-          <div className="p-2 flex flex-row  text-2xl  uppercase font-bold">
-            <img src="https://i.ibb.co/kXFWR70/Group-12.png" alt="dff" />
+          <div className="w-20 p-2 flex flex-row  text-2xl  uppercase font-bold">
+            <img className="w-full" src={logo} alt="dff" />
           </div>
           <div>
             <div className="flex flex-row gap-2 text-xl font-[Inter] w-full  ">
@@ -35,8 +35,8 @@ const Header = () => {
               <a className="p-2 hover:text-white" href="/allOffers">
                 Offers
               </a>
-              <a className="p-2 hover:text-white" href="">
-                Contact
+              <a className="p-2 hover:text-white" href="/track">
+                Track
               </a>
               {user.role == "farmer" ? (
                 <a className="p-2 hover:text-white" href="/app/farmer/">
@@ -62,15 +62,15 @@ const Header = () => {
           </div>
         </div>
         <div className="lg:hidden flex flex-row justify-between ">
-          <div className="p-2 flex flex-row  text-2xl  uppercase font-bold">
-            <img src="https://i.ibb.co/kXFWR70/Group-12.png" alt="" />
+          <div className="w-20 p-2 flex flex-row  text-2xl  uppercase font-bold">
+            <img src={logo} className ="w-full" alt="" />
           </div>
           <div>
             <button
-              className="px-2 pt-2 -mr-1  transition my-auto duration-200 rounded focus:outline-none  focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50"
+              className="px-2 pt-5 -mr-1  transition my-auto duration-200 rounded focus:outline-none  focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50"
               onClick={() => setIsMenuOpen(true)}
             >
-              <IoReorderThreeSharp className="text-3xl " />
+              <IoReorderThreeSharp className="text-3xl" />
             </button>
             {isMenuOpen && (
               <div className="absolute top-0 left-0 w-full z-50">
@@ -105,8 +105,8 @@ const Header = () => {
                     <a className="p-2 hover:text-white" href="/allOffers">
                       Offers
                     </a>
-                    <a className="p-2 hover:text-white" href="">
-                      Contact
+                    <a className="p-2 hover:text-white" href="/track">
+                      Track
                     </a>
                     {user.role == "farmer" ? (
                       <a className="p-2 hover:text-white" href="/app/farmer/">

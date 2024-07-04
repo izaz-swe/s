@@ -6,9 +6,9 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
-import { Box, ListItem, ListSubheader, Typography } from "@mui/material";
+import { Box, ListItem, } from "@mui/material";
 import routes from "../routes/sidebar.jsx";
-
+import logo from "../assets/nav.png"
 import SidebarSubmenu from "./SidebarSubmenu";
 import { NavLink } from "react-router-dom";
 
@@ -23,9 +23,9 @@ function LeftSidebar(props) {
   const drawer = (
     <div>
       <Toolbar>
-        <Typography variant="h6" component="div">
-          Photos
-        </Typography>
+        <div className="w-38">
+          <img className="w-full" src={logo} alt="LOGO"/>
+        </div>
       </Toolbar>
       <Divider />
       <List
