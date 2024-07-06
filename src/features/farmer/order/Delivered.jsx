@@ -2,23 +2,18 @@ import React, { useEffect, useState } from "react";
 import TitleCard from "../../../components/cards/TitleCard";
 import CustomDataTable from "../../../components/CustomDataTable/CustomDataTable";
 import {
-  Button,
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableRow,
 } from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
-import { orderDelivered } from "../../../state/reducers/order/orderSlice";
 
-const OnDelivery = ({ orders }) => {
+const Delivered = ({ orders }) => {
   const [rowsWithIds, setRowsWithIds] = React.useState([]); // Manage rows with IDs in state
-  const {token} = useSelector((state)=> state.user.user)
-  
   useEffect(() => {
     if (orders) {
-      const filteredOrders = orders.filter((order) => order.status === "confirmed");
+      const filteredOrders = orders.filter((order) => order.status === "delivered");
       const mappedRows = filteredOrders.map((row, index) => ({
         ...row,
         id: index + 1,
@@ -26,16 +21,10 @@ const OnDelivery = ({ orders }) => {
       setRowsWithIds(mappedRows);
     }
   }, [orders]); // Re-run useEffect when orders change
-  const dispatch = useDispatch();
-  const handleDelivery = (ob)=> {
-    const body = {
-      orderId: ob.orderId,
-      vehicle: ob.vehicle,
-    };
-    dispatch(orderDelivered({ token, body }));
-  }
+
+  
   return (
-    <TitleCard title="On The Way">
+    <TitleCard title="Delivered">
       <CustomDataTable>
         <Table sx={{ minWidth: 500 }} aria-label="caption table">
           <TableHead>
@@ -57,8 +46,8 @@ const OnDelivery = ({ orders }) => {
                 <TableCell>{row?.offerDetails?.weight}</TableCell>
                 <TableCell>{row?.offerDetails?.price}</TableCell>
                 
-                <TableCell>
-                  <Button onClick={()=> handleDelivery(row)}>Received</Button>
+                <TableCell sx={{"color":"green"}}>
+                  Completed
                 </TableCell>
               </TableRow>
             ))}
@@ -69,4 +58,4 @@ const OnDelivery = ({ orders }) => {
   );
 };
 
-export default OnDelivery;
+export default Delivered;

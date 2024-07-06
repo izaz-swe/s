@@ -30,7 +30,7 @@ const Team = () => {
       },
     ];
     return (
-      <div className=" py-10 font-['Poppins']" id="team">
+      <div className="py-10 font-['Poppins'] bg-gray-200" id="team">
         <div className="container mx-auto">
           <div className="">
             <h1 className="text-4xl font-bold flex justify-center  font-['Poppins']">
@@ -38,7 +38,7 @@ const Team = () => {
             </h1>
            
           </div>
-          <div className=" grid grid-cols-1 bg-slate-50 md:grid-cols-2 lg:grid-cols-4 gap-3 py-10 px-5">
+          <div className=" grid grid-cols-1 bg-gray-200 md:grid-cols-2 lg:grid-cols-4 gap-3 py-10 px-5">
             {cards.map((card, i) => (
               <div key={i} className="flex flex-col items-center  relative rounded-xl ">
                <div className="relative">

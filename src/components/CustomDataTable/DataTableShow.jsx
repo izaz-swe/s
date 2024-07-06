@@ -1,12 +1,13 @@
 import { MdDeleteForever } from "react-icons/md";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { api } from "../../configs/variable";
 import TrackingPage from "../../features/home/Tracking/TrackingPage";
 import { Link } from "react-router-dom";
-
-const DataTableShow = ({ component }) => {
-  console.log(component);
+import { deleteOrder, getOrderByBuyerId } from "../../state/reducers/order/orderSlice";
+import { useEffect } from "react";
+const DataTableShow = () => {
   const { token } = useSelector((state) => state.user.user);
+  const dispatch = useDispatch();
   const handlePayment = (orderId) => {
     fetch(`${api}/order/payment`, {
       method: "POST",
@@ -21,6 +22,18 @@ const DataTableShow = ({ component }) => {
         window.location.replace(result.data);
       });
   };
+  const { buyerOrders } = useSelector((state) => state.order);
+  const { orderRemoved } = useSelector((state) => state.order);
+  useEffect(() => {
+    dispatch(getOrderByBuyerId(token));
+  }, [dispatch, token, orderRemoved]);
+  const handleDelete = (c) => {
+    const orderId = c?.orderId;
+    dispatch(deleteOrder({ token, orderId }));
+  };
+
+  
+  
   return (
     <table className=" table gap-5 w-full container mx-auto ">
       <thead>
@@ -34,11 +47,14 @@ const DataTableShow = ({ component }) => {
         </tr>
       </thead>
       <tbody className=" py-5">
-        {component?.map((c, i) => (
+        {buyerOrders?.map((c, i) => (
           <tr key={i} className="bg-white text-center ">
             <th className="px-6 py-4 font-medium ">
               {
-                <button className="btn btn-ghost ">
+                <button
+                  onClick={() => handleDelete(c)}
+                  className="btn btn-ghost "
+                >
                   <MdDeleteForever className="text-2xl" />
                 </button>
               }
@@ -63,10 +79,7 @@ const DataTableShow = ({ component }) => {
             <td className="px-6 py-4">
               <button className="btn  border py-2 text-xl hover:bg-blue-600 rounded-2xl w-1/2 border-fuchsia-300 btn-sm">
                 {" "}
-                <Link
-                  to={`/track/${c.orderId}`}
-                  state={{ component: c }}
-                >
+                <Link to={`/track/${c.orderId}`} state={{ component: c }}>
                   Track
                 </Link>{" "}
               </button>
