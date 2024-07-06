@@ -4,7 +4,7 @@ import { Faq } from "./Faq/Faq";
 import GrowUp from "./GrowUp/GrowUp";
 import OfferSlider from "./Offer/OfferSlider";
 import Team from "./Team/Team";
-import Testimonials from "./Testimonals/Testimonals";
+import Testimonials from "./Testimonials/Testimonials";
 
 
 const Home = () => {

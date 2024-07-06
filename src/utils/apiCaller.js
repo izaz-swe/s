@@ -41,6 +41,7 @@ export const privatePut = async (endpoint, token, body) => {
 };
 export const privateDelete = async (endpoint, token) => {
   config.headers.token = `${token}`;
+  console.log(endpoint);
   const response = await axios.delete(`${endpoint}`, config);
   return response.data;
 };

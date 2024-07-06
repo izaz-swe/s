@@ -2,7 +2,6 @@ import React from "react";
 import tracking from "../../../assets/tracking.png";
 import { TextField } from "@mui/material";
 const SearchOrder = ({parcelId, setParcelId}) => {
-  console.log(parcelId);
   return (
     <div className="container mx-auto flex py-5">
       <div className="w-[50%] md:my-auto">

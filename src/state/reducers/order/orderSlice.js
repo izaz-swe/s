@@ -6,7 +6,7 @@ const initialState = {
   vehicles: [],
   orderRemoved: false,
   vehicleAssigned: false,
-  orderDelivered: false,
+  orderDeliveredSuccess: false,
   isLoading: false,
   error: false,
   success: false,
@@ -103,7 +103,7 @@ const orderSlice = createSlice({
         state.isLoading = false;
         state.error = true;
         state.success = false;
-        state.errMessage = action.payload.message;
+        state.errMessage = action.message;
       })
       .addCase(createOrder.fulfilled, (state) => {
         state.isLoading = false;
@@ -114,12 +114,14 @@ const orderSlice = createSlice({
         state.isLoading = true;
         state.error = false;
         state.success = false;
+        state.orderDeliveredSuccess = false;
+        state.vehicleAssigned= false;
       })
       .addCase(getOrderByFarmerId.rejected, (state, action) => {
         state.isLoading = false;
         state.error = true;
         state.success = false;
-        state.errMessage = action.payload.message;
+        state.errMessage = action.message;
       })
       .addCase(getOrderByFarmerId.fulfilled, (state, action) => {
         state.isLoading = false;
@@ -153,7 +155,7 @@ const orderSlice = createSlice({
         state.isLoading = false;
         state.error = true;
         state.success = false;
-        state.errMessage = action.payload.message;
+        state.errMessage = action.payload;
       })
       .addCase(deleteOrder.fulfilled, (state) => {
         state.isLoading = false;
@@ -193,7 +195,7 @@ const orderSlice = createSlice({
         state.isLoading = false;
         state.error = false;
         state.success = true;
-        state.orderDelivered = true;
+        state.orderDeliveredSuccess = true;
       })
       .addCase(getAvailableVehicle.pending, (state) => {
         state.isLoading = true;
