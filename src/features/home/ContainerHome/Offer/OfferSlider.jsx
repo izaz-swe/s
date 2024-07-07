@@ -20,7 +20,7 @@ const OfferSlider = () => {
       <div className="container mx-auto">
         <h1 className="text-4xl text-center font-bold">Offer Product</h1>
         {
-          homeOffers.length > 0 ? < Slider homeOffers={homeOffers}/> : <Loader/>
+          homeOffers?.length > 0 ? < Slider homeOffers={homeOffers}/> : <Loader/>
         }
       </div>
     </div>

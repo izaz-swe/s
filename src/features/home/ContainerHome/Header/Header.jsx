@@ -30,13 +30,22 @@ const Header = () => {
               <a className="p-2 hover:text-white" href="/">
                 Home
               </a>
-              <a className="p-2 hover:text-white" href="/order">
-                Order
-              </a>
 
-              <a className="p-2 hover:text-white" href="/allOffers">
-                Offers
-              </a>
+              {user.role == "farmer" ? (
+                ""
+              ) : (
+                <a className="p-2 hover:text-white" href="/order">
+                  Order
+                </a>
+              )}
+              {user.role == "farmer" ? (
+                ""
+              ) : (
+                <a className="p-2 hover:text-white" href="/allOffers">
+                  Offers
+                </a>
+              )}
+
               <a className="p-2 hover:text-white" href="/track">
                 Track
               </a>
@@ -106,12 +115,20 @@ const Header = () => {
                     <a className="p-2 hover:text-white" href="/">
                       Home
                     </a>
-                    <a className="p-2 hover:text-white" href="/order">
-                      Order
-                    </a>
-                    <a className="p-2 hover:text-white" href="/allOffers">
-                      Offers
-                    </a>
+                    {user.role == "farmer" ? (
+                      ""
+                    ) : (
+                      <a className="p-2 hover:text-white" href="/order">
+                        Order
+                      </a>
+                    )}
+                    {user.role == "farmer" ? (
+                      ""
+                    ) : (
+                      <a className="p-2 hover:text-white" href="/allOffers">
+                        Offers
+                      </a>
+                    )}
                     <a className="p-2 hover:text-white" href="/track">
                       Track
                     </a>

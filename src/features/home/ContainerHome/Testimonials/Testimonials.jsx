@@ -9,20 +9,23 @@ const Testimonials = () => {
       "review text":
         "Selling my crops through this platform was a seamless experience! The interface was user-friendly, and I managed to find buyers quickly. The transactions were smooth, and I got a fair price for my produce.",
       rating: 5,
+      image: "https://res.cloudinary.com/dtnehb5zd/image/upload/v1720351812/farmer_d3d1uu.jpg"
     },
     {
-      Name: "Farmer Emily",
+      Name: "Buyer Emily",
       Date: "2023-05-10",
       "review text":
         "This website helped me connect with a factory looking for organic produce. The process was efficient, and I received payment promptly. Highly recommend this platform to fellow farmers.",
       rating: 4,
+      image: "https://res.cloudinary.com/dtnehb5zd/image/upload/v1720351812/farmer_2_mwepdm.jpg"
     },
     {
-      Name: "Farmer James",
+      Name: "Mr. James",
       Date: "2023-05-07",
       "review text":
         "Initially, I faced some issues understanding how to list my crops, but the customer support team was very helpful. After that, selling my crops was easy and hassle-free.",
       rating: 3,
+      image: "https://res.cloudinary.com/dtnehb5zd/image/upload/v1720351813/farmer_3_ky059v.jpg"
     },
   ];
 
@@ -37,19 +40,19 @@ const Testimonials = () => {
 
   return (
     <section className="my-8  overflow-x-hidden bg-gray-200">
-      <div className="py-20 px-8 max-w-screen-md mx-auto">
-        <h1 className="text-4xl  text-center font-medium mb-6 dark:text-snow-white">
+      <div className="py-10 px-8 max-w-screen-md mx-auto">
+        <h1 className="text-4xl  text-center font-medium mb-6">
           See what our happy customers are saying
         </h1>
         <p className="text-base font-inter dark:text-snow-white-toned text-center">
-          meet their best experience and happy moments provided by us
+          Meet their best experience and happy moments provided by us
         </p>
       </div>
 
       <Slider {...settings}>
         {reviews?.map((review, i) => (
           <div key={i}>
-            <div className="flex flex-col justify-center items-center p-4 mx-auto space-y-6 md:p-8 bg-white   rounded-lg transition-shadow duration-500 shadow-xxl dark:bg-opacity-10 max-w-4xl py-10">
+            <div className="flex flex-col justify-center items-center p-4 mx-auto space-y-2 md:p-4 bg-white   rounded-lg transition-shadow duration-500 shadow-xxl dark:bg-opacity-10 max-w-4xl py-10">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 512 512"
@@ -61,16 +64,16 @@ const Testimonials = () => {
                   4
                 </path>
               </svg>
-              <p className="px-6 py-2 text-2xl font-semibold text-center sm:font-bold sm:text-2xl md:text-3xl lg:max-w-2xl xl:max-w-4xl dark:text-snow-white ">
+              <p className="px-6 py-2 text-xl font-semibold text-center sm:font-bold sm:text-2xl md:text-3xl lg:max-w-2xl xl:max-w-4xl dark:text-snow-white ">
                 " {review?.["review text"]} "
               </p>
               <div className="flex justify-center space-x-3">
                 <img
                   src={
-                    "https://cdn.pixabay.com/photo/2016/08/22/14/42/engineer-1612104_640.jpg"
+                    review.image
                   }
                   alt=""
-                  className="w-1/6 h-1/6 bg-center bg-cover rounded-md dark:bg-gray-500"
+                  className="w-1/4 h-1/6 bg-center rounded-md dark:bg-gray-500"
                 />
                 <div className="flex flex-col my-auto items-center">
                   <p className="leading-tight dark:text-snow-white-toned">

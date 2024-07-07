@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import {
   privateGet,
   privatePostFile,
+  privatePut,
   publicGet,
 } from "../../../utils/apiCaller";
 const initialState = {
@@ -15,12 +16,24 @@ const initialState = {
   success: false,
   errorMessage: "",
   offerCreated: false,
+  offerDeleted: false,
 };
 export const makeOffer = createAsyncThunk(
   "offer/makeOffer",
   async ({ token, offer }, { rejectWithValue }) => {
     try {
       const response = await privatePostFile("/offer/create", token, offer);
+      return response;
+    } catch (err) {
+      return rejectWithValue(err);
+    }
+  }
+);
+export const updateOffer = createAsyncThunk(
+  "offer/updateOffer",
+  async ({ token, body }, { rejectWithValue }) => {
+    try {
+      const response = await privatePut("/offer/delete", token, body);
       return response;
     } catch (err) {
       return rejectWithValue(err);
@@ -101,6 +114,23 @@ const offerSlice = createSlice({
         state.success = true;
         state.offerCreated = true;
       })
+      .addCase(updateOffer.pending, (state) => {
+        state.isLoading = true;
+        state.error = false;
+        state.success = false;
+      })
+      .addCase(updateOffer.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = true;
+        state.success = false;
+        state.errorMessage = action.payload.message;
+      })
+      .addCase(updateOffer.fulfilled, (state) => {
+        state.isLoading = false;
+        state.error = false;
+        state.success = true;
+        state.offerDeleted = true;
+      })
       .addCase(getCategories.pending, (state) => {
         state.isLoading = true;
         state.error = false;
@@ -121,6 +151,7 @@ const offerSlice = createSlice({
         state.isLoading = true;
         state.error = false;
         state.success = false;
+        state.offerDeleted = false;
       })
       .addCase(getOffersByUserId.rejected, (state, action) => {
         state.isLoading = false;
@@ -143,7 +174,7 @@ const offerSlice = createSlice({
         state.isLoading = false;
         state.error = true;
         state.success = false;
-        state.errorMessage = action.payload;
+        state.errorMessage = action.message;
       })
       .addCase(getOffers.fulfilled, (state, action) => {
         state.isLoading = false;
