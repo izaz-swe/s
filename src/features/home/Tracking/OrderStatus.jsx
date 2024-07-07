@@ -8,13 +8,13 @@ import { LinearProgress } from "@mui/material";
 import React, { useEffect, useState } from "react";
 
 const OrderStatus = ({ component }) => {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(10);
   useEffect(() => {
-    if (component?.status == "pending") setValue(0);
+    if (component?.status == "pending") setValue(10);
     else if (component?.status == "paid") setValue(25);
     else if (component?.status == "confirmed") setValue(50);
     else if (component?.status == "delivered") setValue(75);
-  }, []);
+  }, [component]);
   return (
     <section>
       <div className="p-4 max-w-screen-2xl mx-auto">
@@ -22,8 +22,8 @@ const OrderStatus = ({ component }) => {
           <div className="flex justify-around text-lg font-medium">
             <h2 className="">
               Order ID:{" "}
-              {component?.offerDetails?.offerId
-                ? component.offerDetails?.offerId
+              {component?.orderId
+                ? component.orderId
                 : "xxx-xxx-xxx"}
             </h2>
             <h2 className="">Delivered by: Rider </h2>

@@ -10,7 +10,7 @@ import { Box, ListItem, } from "@mui/material";
 import routes from "../routes/sidebar.jsx";
 import logo from "../assets/nav.png"
 import SidebarSubmenu from "./SidebarSubmenu";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function LeftSidebar(props) {
   const {
@@ -24,7 +24,9 @@ function LeftSidebar(props) {
     <div>
       <Toolbar>
         <div className="w-38">
+          <Link to="/">
           <img className="w-full" src={logo} alt="LOGO"/>
+          </Link>
         </div>
       </Toolbar>
       <Divider />

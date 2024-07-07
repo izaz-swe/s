@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import tracking from "../../../assets/tracking.png";
 import { TextField } from "@mui/material";
-const SearchOrder = ({parcelId, setParcelId}) => {
+import { Link } from "react-router-dom";
+const SearchOrder = () => {
+  const [parcelId, setParcelId] = useState("");
   return (
     <div className="container mx-auto flex py-5">
       <div className="w-[50%] md:my-auto">
@@ -25,11 +27,20 @@ const SearchOrder = ({parcelId, setParcelId}) => {
         </p>
         <div className="flex w-full md:justify-start justify-center items-end">
           <div className="relative mr-4 lg:w-full xl:w-1/2 w-2/4">
-            <TextField id="outlined-basic" label="Parcel Id" variant="outlined" value={parcelId} onChange={e => setParcelId(e.value)}/>
+            <TextField
+              id="outlined-basic"
+              label="Parcel Id"
+              variant="outlined"
+              value={parcelId}
+              onChange={(e) => setParcelId(e.target.value)}
+            />
           </div>
-          <button  className="inline-flex text-white bg-amber-400 border-0 py-2 px-6 focus:outline-none hover:bg-amber-500 rounded text-lg">
-            Track
-          </button>
+          <Link to={`/track/${parcelId}`}>
+            {" "}
+            <button className="inline-flex text-white bg-amber-400 border-0 py-2 px-6 focus:outline-none hover:bg-amber-500 rounded text-lg">
+              Track
+            </button>
+          </Link>
         </div>
       </div>
     </div>
