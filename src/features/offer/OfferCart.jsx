@@ -1,4 +1,5 @@
 import {
+  Button,
   Table,
   TableBody,
   TableCell,
@@ -7,17 +8,26 @@ import {
 } from "@mui/material";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {  getOffersByUserId } from "../../state/reducers/offer/offerSlice";
+import {
+  getOffersByUserId,
+  updateOffer,
+} from "../../state/reducers/offer/offerSlice";
+import { DeleteOutline } from "@mui/icons-material";
 
 const OfferCart = () => {
   const dispatch = useDispatch();
   const { userId, token } = useSelector((state) => state.user.user);
+  const { offers, offerDeleted } = useSelector((state) => state.offer);
   useEffect(() => {
     dispatch(getOffersByUserId({ userId, token }));
-  }, [dispatch, userId]);
-  const { offers } = useSelector((state) => state.offer);
-  const rowsWithIds = offers.map((row, index) => ({ ...row, id: index + 1 }));
-
+  }, [dispatch, userId, offerDeleted]);
+  const rowsWithIds = offers.filter(row => row.isActive).map((row, index) => ({ ...row, id: index + 1 }));
+  const handleDelete = (offerId) => {
+    const body = {
+      offerId: offerId
+    }
+    dispatch(updateOffer({ token, body }));
+  }
   return (
     <Table sx={{ minWidth: 500 }} aria-label="caption table">
       <TableHead>
@@ -27,6 +37,7 @@ const OfferCart = () => {
           <TableCell>Unit</TableCell>
           <TableCell>Weight</TableCell>
           <TableCell>Price</TableCell>
+          <TableCell>Remove</TableCell>
         </TableRow>
       </TableHead>
       <TableBody>
@@ -39,6 +50,11 @@ const OfferCart = () => {
             <TableCell>{row.unit}</TableCell>
             <TableCell>{row.weight}</TableCell>
             <TableCell>{row.price}</TableCell>
+            <TableCell>
+              <Button onClick={() => handleDelete(row.offerId)}>
+                <DeleteOutline></DeleteOutline>
+              </Button>
+            </TableCell>
           </TableRow>
         ))}
       </TableBody>
