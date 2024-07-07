@@ -1,4 +1,4 @@
-import { Add, Dashboard, PostAdd, ShoppingCartCheckoutOutlined } from "@mui/icons-material";
+import { Add, Dashboard, PostAdd, Sell, ShoppingCartCheckoutOutlined } from "@mui/icons-material";
 const routes = [
   {
     path: "/app/farmer/",
@@ -17,8 +17,8 @@ const routes = [
       },
       {
         path: "/app/farmer/sale",
-        icon: <Dashboard />,
-        name: "Sale Product"
+        icon: <Sell />,
+        name: "Sold Offer"
       },
     ] 
   },

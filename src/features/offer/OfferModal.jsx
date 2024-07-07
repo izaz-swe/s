@@ -152,8 +152,8 @@ const OfferModal = ({ handleClose }) => {
               </FormGroup>
             </Grid>
             <Grid item xs={12} sm={6}>
-              <Button component="label" role={undefined} variant="contained" tabIndex={-1} startIcon={<CloudUpload/>} sx={{bgcolor: '#4615b2'}}>
-              Upload Crop Image
+              <Button component="label" role={undefined} variant="contained" tabIndex={-1} startIcon={<CloudUpload/>} sx={image? {bgcolor: '#4615b2'} : {bgcolor:'#006F46'}}>
+              {image ? "Change image" : "Upload Image"}
               <input
                   hidden
                   type="file"

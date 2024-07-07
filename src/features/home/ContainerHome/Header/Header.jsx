@@ -3,8 +3,8 @@ import { IoReorderThreeSharp } from "react-icons/io5";
 import { CiSearch } from "react-icons/ci";
 import { Login, Logout } from "@mui/icons-material";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import logo from "../../../../assets/footer_logo.png"
+import { Link, useNavigate } from "react-router-dom";
+import logo from "../../../../assets/footer_logo.png";
 const Header = () => {
   const navigate = useNavigate();
   function logoutUser() {
@@ -21,7 +21,9 @@ const Header = () => {
       <div className=" container mx-auto ">
         <div className=" px-2 pt-2   hidden lg:flex items-center font-[Inter] lg:flex-row  lg:justify-between max-w-full">
           <div className="w-20 p-2 flex flex-row  text-2xl  uppercase font-bold">
-            <img className="w-full" src={logo} alt="dff" />
+            <Link to="/">
+              <img className="w-full" src={logo} alt="dff" />
+            </Link>
           </div>
           <div>
             <div className="flex flex-row gap-2 text-xl font-[Inter] w-full  ">
@@ -66,7 +68,9 @@ const Header = () => {
         </div>
         <div className="lg:hidden flex flex-row justify-between ">
           <div className="w-20 p-2 flex flex-row  text-2xl  uppercase font-bold">
-            <img src={logo} className ="w-full" alt="" />
+            <Link to="/">
+              <img className="w-full" src={logo} alt="dff" />
+            </Link>
           </div>
           <div>
             <button

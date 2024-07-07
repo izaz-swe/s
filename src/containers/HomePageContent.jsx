@@ -24,7 +24,7 @@ const HomePageContent = () => {
         </Route>
         <Route path="/blog" element={<BlogPage/>}/>
         <Route path="/track" element={<TrackingPage/>}/>
-        <Route path="/track/:id" element={<TrackingPage/>}/>
+        <Route path="/track/:orderId" element={<TrackingPage/>}/>
       </Routes>
     </div>
   );

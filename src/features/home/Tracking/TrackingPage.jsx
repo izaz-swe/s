@@ -1,18 +1,25 @@
-import React, { useState } from 'react'
-import SearchOrder from './SearchOrder'
-import OrderStatus from './OrderStatus';
-import { useLocation } from 'react-router-dom';
-
+import React, { useEffect, useState } from "react";
+import SearchOrder from "./SearchOrder";
+import OrderStatus from "./OrderStatus";
+import { useParams } from "react-router-dom";
+import axios from "../../../utils/axios";
 const TrackingPage = () => {
-  const [parcelId, setParcelId] = useState("");
-  const location = useLocation();
-  const { component } = location.state || {};
+  const { orderId } = useParams();
+  
+  const [component, setComponent] = useState({});
+  useEffect(() => {
+    const getOrderDetails = async () => {
+      const order = await axios.get(`/order/track/${orderId}`);
+      setComponent(order.data.data);
+    };
+    getOrderDetails();
+  }, [orderId]);
   return (
-    <div className='bg-gray-100'>
-      <SearchOrder parcelId={parcelId} setParcelId={setParcelId}/>
-      <OrderStatus component={component}/>
+    <div className="bg-gray-100">
+      <SearchOrder />
+      <OrderStatus component={component} />
     </div>
-  )
-}
+  );
+};
 
-export default TrackingPage
+export default TrackingPage;

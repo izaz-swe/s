@@ -3,7 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { api } from "../../configs/variable";
 import TrackingPage from "../../features/home/Tracking/TrackingPage";
 import { Link } from "react-router-dom";
-import { deleteOrder, getOrderByBuyerId } from "../../state/reducers/order/orderSlice";
+import {
+  deleteOrder,
+  getOrderByBuyerId,
+} from "../../state/reducers/order/orderSlice";
 import { useEffect } from "react";
 const DataTableShow = () => {
   const { token } = useSelector((state) => state.user.user);
@@ -32,8 +35,6 @@ const DataTableShow = () => {
     dispatch(deleteOrder({ token, orderId }));
   };
 
-  
-  
   return (
     <table className=" table gap-5 w-full container mx-auto ">
       <thead>
@@ -77,12 +78,11 @@ const DataTableShow = () => {
               )}
             </td>
             <td className="px-6 py-4">
-              <button className="btn  border py-2 text-xl hover:bg-blue-600 rounded-2xl w-1/2 border-fuchsia-300 btn-sm">
-                {" "}
-                <Link to={`/track/${c.orderId}`} state={{ component: c }}>
+              <Link to={`/track/${c.orderId}`}>
+                <button className="btn  border py-2 text-xl hover:bg-blue-600 rounded-2xl w-1/2 border-fuchsia-300 btn-sm">
                   Track
-                </Link>{" "}
-              </button>
+                </button>
+              </Link>
             </td>
           </tr>
         ))}

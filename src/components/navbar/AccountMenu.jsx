@@ -52,13 +52,13 @@ export default function AccountMenu() {
             open={Boolean(anchorEl)}
             onClose={handleClose}
           >
-            <MenuItem component={Link} to="/app/sale">
+            <MenuItem component={Link} to="/app/farmer/profile">
               <ListItemIcon>
                 <AccountCircle />
               </ListItemIcon>
               Profile
             </MenuItem>
-            <MenuItem component={Link} to="/app/sale">
+            <MenuItem component={Link} to="/app/farmer/profile">
               <ListItemIcon>
                 <Settings />
               </ListItemIcon>
