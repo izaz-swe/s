@@ -2,15 +2,8 @@ import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
-    <div className=" mx-auto relative   pb-10">
-      <video
-        src={`https://www.shutterstock.com/shutterstock/videos/1085503217/preview/stock-footage-agriculture-farmer-girl-walks-through-field-of-vegetables-at-sunset-an-agronomist-works-in-open.webm`}
-        autoPlay
-        className="absolute inset-0  w-full  h-full object-cover"
-        loop
-      ></video>
-
-      <div className="relative z-10 h-[80vh]">
+    <div className=" mx-auto relative bg-[url('https://plus.unsplash.com/premium_photo-1661900547591-80ee79e20d1c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGFncmljdWx0dXJlfGVufDB8fDB8fHww')] bg-no-repeat bg-cover  pb-10">
+      <div className=" z-10   ">
         <div className="flex flex-col justify-evenly items-center px-4 py-36 mx-auto md:flex-row sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 ">
           <div>
             <h1 className="text-4xl  lg:text-6xl tracking-normal md:leading-[1.4em] lg:leading-[1.2em] capitalize dark:text-snow-white">
@@ -24,9 +17,9 @@ const Banner = () => {
               Find Everything You Need Here{" "}
             </i>
             <p className=" font-inter text-dark-toned text-white text-lg dark:text-snow-white-toned">
-              "Welcome to Soil To Factory - Your One-Stop Destination for
-              Fresh Produce! Explore a Variety of Locally Grown Fruits,
-              Vegetables, and More Directly from Farmers Near You. Shop Now!"
+              "Welcome to Soil To Factory - Your One-Stop Destination for Fresh
+              Produce! Explore a Variety of Locally Grown Fruits, Vegetables,
+              and More Directly from Farmers Near You. Shop Now!"
             </p>
 
             <Link
@@ -38,6 +31,7 @@ const Banner = () => {
           </div>
         </div>
       </div>
+      <div className="absolute inset-0 bg-black opacity-50"></div>
     </div>
   );
 };
