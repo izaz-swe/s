@@ -36,38 +36,38 @@ const dashboard = () => {
         ) : (
           <>
             <DashboardAmountCard
-              amountText={"আজকের মোট বিক্রয়"}
-              amount={history?.todayTotalAmount}
+              amountText={"Today's Total Sale"}
+              amount={history?.todayTotalAmount ? history?.todayTotalAmount : 0 }
               link={"/today"}
               cardColor="#48C9B0"
             />
             <DashboardAmountCard
-              amountText={"আজকের অনলাইন পেমেন্ট"}
+              amountText={"Today's Online Payment"}
               amount={history?.todayOnlineTotalAmount}
               link={"/today"}
               cardColor="#F1948A"
             />
             <DashboardAmountCard
-              amountText={"আজকের নগদ বিক্রয়"}
+              amountText={"Today's Cash Sales"}
               amount={history?.todayCashTotalAmount}
               link={"/today"}
               cardColor="#5DADE2"
             />
             <DashboardAmountCard
-              amountText={"আজকের বাকিতে বিক্রয়"}
+              amountText={"Total Due"}
               amount={history?.todayDueTotalAmount}
               link={"/today"}
               cardColor="#DE3163"
             />
             <DashboardAmountCard
-              amountText={"মাসিক মোট বিক্রয়"}
-              amount={history?.thisMonthTotalAmount}
+              amountText={"Total Monthly Sales"}
+              amount={history?.thisMonthTotalAmount ? history?.thisMonthTotalAmount : 0}
               link={"/today"}
               cardColor="#8A2BE2"
             />
             <DashboardAmountCard
-              amountText={"বাৎসরিক মোট বিক্রয় "}
-              amount={history?.yearlySale}
+              amountText={"Total Yearly Sale"}
+              amount={history?.yearlySale ? history?.yearlySale : 0}
               link={"/today"}
               cardColor="#6495ED"
             />
