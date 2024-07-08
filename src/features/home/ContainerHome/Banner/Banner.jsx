@@ -16,12 +16,12 @@ const Banner = () => {
               {" "}
               Find Everything You Need Here{" "}
             </i>
-            <p className="font-inter font-bold  text-white text-lg py-5">
+            <p className="font-inter font-bold  text-white text-xl py-5">
               "Welcome to Soil To Factory - Your One-Stop Destination for Fresh
               Produce! Explore a Variety of Locally Grown Fruits, Vegetables,
               and More Directly from Farmers Near You. Shop Now!"
             </p>
-            <Link to="service">
+            <Link to="/login">
               <button className="btn hover:bg-green-900 bg-green-700 text-white w-1/4 mx-auto py-4 rounded-xl mt-5">
                 Get started
               </button>
