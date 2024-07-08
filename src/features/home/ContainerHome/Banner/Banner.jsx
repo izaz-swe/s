@@ -21,7 +21,7 @@ const Banner = () => {
               Produce! Explore a Variety of Locally Grown Fruits, Vegetables,
               and More Directly from Farmers Near You. Shop Now!"
             </p>
-            <Link to="service">
+            <Link to="/login">
               <button className="btn hover:bg-green-900 bg-green-700 text-white w-1/4 mx-auto py-4 rounded-xl mt-5">
                 Get started
               </button>
